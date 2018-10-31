@@ -1,0 +1,39 @@
+
+# Aminoacid dictonary voor punt 3
+amino_dict = {"ALA" : "A",
+              "ARG" : "R",
+              "ASN" : "N",
+              "ASP" : "D",
+              "CYS" : "C",
+              "PHE" : "F",
+              "GLN" : "Q",
+              "GLY" : "G",
+              "GLU" : "E",
+              "HIS" : "H",
+              "ILE" : "I",
+              "LEU" : "L",
+              "LYS" : "K",
+              "MET" : "M",
+              "PRO" : "P",
+              "SER" : "S",
+              "THR" : "T",
+              "TRP" : "W",
+              "TYR" : "Y",
+              "VAL" : "V",
+              "UNK" : "/"}
+
+
+def file_opener():
+    file_name = input('give input file: ')
+    file_obj = open(file_name)
+    return file_obj
+
+
+def amino_string():
+    amino_seq = ""
+    for line in file_opener():
+        if line.startswith("SEQRES"):
+            amino_seq += line[19:]
+    return amino_seq
+
+#print(amino_string())
